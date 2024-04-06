@@ -89,13 +89,10 @@ validateForm
     {
       rule: 'required',
       value: true,
-      errorMessage: 'Це поле повинно бути заповнено, мін 20 символів',
+      errorMessage: 'Це поле повинно бути заповнено',
     },
   ])
 
-console.log(validateForm)
 validateForm.onSuccess(function () {
   sendMail()
 })
-
-// btn.addEventListener('click', sendMail)
