@@ -302,9 +302,19 @@ body {
   gap: 30px;
   width: 494px;
 }
+.connect-form__label {
+  position: relative;
+}
+.just-validate-error-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 
 .connect-form__input,
 .connect-form__text {
+  margin-bottom: 26px;
+  width: 100%;
   border: none;
   font-size: 16px;
   font-weight: 500;
