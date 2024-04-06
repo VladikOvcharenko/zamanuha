@@ -84,7 +84,7 @@ validateForm
     {
       rule: 'minLength',
       value: 20,
-      errorMessage: 'Це поле повинно бути заповнено, мін 20 символів',
+      errorMessage: 'Це поле повинно бути заповнено',
     },
     {
       rule: 'required',
