@@ -1,24 +1,3 @@
-const publicKey = 'YOUR_PUBLIC_KEY'
-const serviceID = 'YOUR_PRIVATE_KEY'
-const templateID = 'YOUR_TEMPLATE_KEY'
-
-// const publicKey = '5Pl8Ooyv2M-mzt8Al'
-// const serviceID = 'service_1g36cd7'
-// const templateID = 'template_0q7rsnu'
-
-const btn = document.querySelector('.connect-form__btn')
-
-;(function () {
-  emailjs.init({
-    publicKey: publicKey,
-  })
-})()
-
-const form = document.querySelector('.connect-form')
-const tel = form.querySelector('input[type="tel"]')
-const inputMask = new Inputmask('+38 (999) 999 99 99')
-inputMask.mask(tel)
-
 const validateForm = new JustValidate(document.querySelector('.connect-form'))
 
 function sendMail() {
@@ -28,16 +7,6 @@ function sendMail() {
     phone: document.querySelector('#phone').value,
     message: document.querySelector('#message').value,
   }
-
-  emailjs
-    .send(serviceID, templateID, params)
-    .then((res) => {
-      alert('mail sent' + res.status)
-      document.querySelector('.connect-form').reset()
-    })
-    .catch((error) => {
-      console.error('Error sending email:', error)
-    })
 }
 
 validateForm
@@ -74,21 +43,22 @@ validateForm
     {
       rule: 'custom',
       validator: (value) => {
-        const phone = tel.inputmask.unmaskedvalue()
-        return Boolean(Number(phone)) && phone.length === 10
+        const reg = /[A-Za-zА-Яа-яЁё]/g
+        const phoneInput = document.querySelector('#phone')
+        phoneInput.addEventListener('input', function () {
+          this.value = this.value.replace(reg, '')
+        })
+        const phone = phoneInput.value
+        const phoneLength = phone.replace(reg, '').length
+        return phoneLength >= 10 && phoneLength <= 13
       },
       errorMessage: 'введіть номер телефону',
     },
   ])
   .addField(document.querySelector('#message'), [
     {
-      rule: 'minLength',
-      value: 20,
-      errorMessage: 'Це поле повинно бути заповнено',
-    },
-    {
-      rule: 'required',
-      value: true,
+      rule: 'maxLength',
+      value: 420,
       errorMessage: 'Це поле повинно бути заповнено',
     },
   ])
