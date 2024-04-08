@@ -1,12 +1,12 @@
 const validateForm = new JustValidate(document.querySelector('.connect-form'))
 
-function sendMail() {
-  const params = {
-    name: document.querySelector('#name').value,
-    email: document.querySelector('#email').value,
-    phone: document.querySelector('#phone').value,
-    message: document.querySelector('#message').value,
-  }
+const openModal = () => {
+  const modal = document.getElementById('modal')
+  modal.classList.add('active-modal')
+
+  setTimeout(() => {
+    modal.classList.remove('active-modal')
+  }, 3000)
 }
 
 validateForm
