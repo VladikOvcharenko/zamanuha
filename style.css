@@ -58,6 +58,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow: hidden;
 }
 
 .hero-container::before,
@@ -124,7 +125,7 @@ body {
   align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
-  animation: animation-text 25s linear infinite;
+  animation: animation-text 50s linear infinite;
 }
 .hero-box__text,
 .support-animation__text {
@@ -463,6 +464,21 @@ body {
   color: var(--accent-color);
 }
 
+@media screen and (max-width: 1280px) {
+  .hero-container::after {
+    bottom: 0;
+    left: 40px;
+  }
+  .support-wrapper {
+    gap: 25px;
+  }
+  .support-wrapper__item {
+    padding: 40px;
+  }
+  .offers-container__img {
+    width: 540px;
+  }
+}
 @media screen and (max-width: 768px) {
   .container,
   .hero-container {
@@ -552,6 +568,10 @@ body {
 }
 
 @media screen and (max-width: 430px) {
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
   .hero-container {
     padding-top: 100px;
   }
@@ -571,15 +591,15 @@ body {
   .hero-box {
     display: block;
     position: absolute;
-    top: 470px;
+    top: 355px;
     left: -20px;
   }
 
   .hero-box__wrapper {
     margin-top: 10px;
+    width: 115%;
     background: var(--accent-color);
     height: 71px;
-    width: 460px;
     transform: rotate(4deg);
     justify-content: center;
     gap: 68px;
@@ -593,7 +613,6 @@ body {
   .hero-box__text {
     padding: 0;
   }
-
   .hero-title {
     padding: 20px;
   }
