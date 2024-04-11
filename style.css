@@ -468,6 +468,9 @@ body {
 }
 
 @media screen and (max-width: 1280px) {
+  .container {
+    margin: 0 16px;
+  }
   .hero-container::after {
     bottom: 0;
     left: 40px;
@@ -483,10 +486,6 @@ body {
   }
 }
 @media screen and (max-width: 768px) {
-  .container,
-  .hero-container {
-    margin: 0 16px;
-  }
   .hero-container {
     padding: 0;
     padding-top: 166px;
